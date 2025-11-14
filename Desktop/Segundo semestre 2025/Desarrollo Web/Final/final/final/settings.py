@@ -138,3 +138,9 @@ STATICFILES_DIRS = []
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+if os.environ.get('RENDER') == 'true':
+    import django
+    django.setup()
+    from django.core.management import call_command
+    call_command('migrate', interactive=False)
