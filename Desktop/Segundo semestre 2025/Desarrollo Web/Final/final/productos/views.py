@@ -24,9 +24,9 @@ def editar_producto(request, id):
     categorias = Categoria.objects.all()
     if request.method == 'POST':
         producto.nombre = request.POST['nombre']
-        producto.precio = request.POST['precio']
-        producto.descripcion = request.POST['descripcion']
-        producto.categoria_id = request.POST['categoria']
+        producto.precio = request.POST['precio'],
+        producto.descripcion = request.POST['descripcion'],
+        producto.categoria_id = request.POST['categoria'],
         producto.stock = request.POST['stock']
         producto.save()
         return redirect('lista_productos')
